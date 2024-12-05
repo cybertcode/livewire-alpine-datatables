@@ -10,8 +10,8 @@ use Livewire\WithPagination;
 class ListStudents extends Component
 {
     use WithPagination;
-    #[Layout('layouts.app')]
-    public $name, $email, $class_id, $section_id;
+    // #[Layout('layouts.app')]// en caso no cambiamos el layout en config livewire
+
     public function render()
     {
         return view('livewire.list-students', ['students' => Student::paginate(10)]);

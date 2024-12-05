@@ -1,10 +1,10 @@
 <div class="w-[70%] mt-7 mx-auto">
     <div class="flex items-center justify-between h-16 px-6 bg-gray-100 shadow-md rounded-lg mb-7">
         <h1 class="text-2xl font-semibold text-gray-800">Listado de Estudiantes</h1>
-        <button
+        <a href="{{ route('students.create') }}"
             class="px-6 py-2 bg-blue-600 text-white font-medium text-sm rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
             Nuevo
-        </button>
+        </a>
     </div>
     <div
         class="overflow-hidden w-full overflow-x-auto rounded-md border border-neutral-300 dark:border-neutral-700 shadow-md ">
