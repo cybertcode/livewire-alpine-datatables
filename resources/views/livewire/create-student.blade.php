@@ -11,37 +11,53 @@
                 </div>
             </div>
 
-            <form action="https://fabform.io/f/xxxxx" method="post" class="ml-auo space-y-4">
+            <form wire:submit.prevent='addStudent' method="post" class="ml-auo space-y-4">
                 <label for="name"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
                 <input wire:model='name' type='text' name ="name" placeholder='Name'
-                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" />
+                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff] @error('name') border-red-500 @enderror" />
+                @error('name')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo
                     electrónico</label>
                 <input wire:model='email' type='email' name='email' placeholder='Email'
-                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" />
+                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff] @error('email') border-red-500 @enderror" />
+                @error('email')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
                 <label for="class_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seleccionar
                     clase</label>
-                <select wire:model='class_id' id="class_id"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected>Elegir clase</option>
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
+                <select wire:model.live='class_id' id="class_id"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('name') border-red-500 @enderror">
+                    <option selected>Selecione una clase</option>
+                    @forelse($classes as $class)
+                        <option value="{{ $class->id }}">{{ $class->name }}</option>
+                    @empty
+                        <option>Ninguno</option>
+                    @endforelse
+
+
                 </select>
+                @error('class_id')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
                 <label for="section_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seleccionar
                     sección</label>
                 <select wire:model='section_id' id="section_id"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('name') border-red-500 @enderror">
                     <option selected>Elegir sección</option>
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
+                    @forelse($sections as $section)
+                        <option value="{{ $section->id }}">{{ $section->name }}</option>
+                    @empty
+                        <option selected>Ninguno</option>
+                    @endforelse
                 </select>
-                <button type='button' type="submit"
-                    class="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Send</button>
+                @error('section_id')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+                <button type="submit"
+                    class="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Guardar</button>
             </form>
         </div>
     </div>
