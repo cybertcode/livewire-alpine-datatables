@@ -3,15 +3,15 @@
         <div
             class="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md text-[#333] font-[sans-serif]">
             <div>
-                <h1 class="text-3xl font-extrabold">REGISTRANDO</h1>
+                <h1 class="text-3xl font-extrabold">ACTUALIZANDO</h1>
                 <p class="text-sm text-gray-400 mt-3">Registro de estudiantes </p>
                 <div class="mt-12">
                     <a href="{{ route('students.index') }}" type='button' type="submit"
-                        class="text-white bg-[#7993ae] hover:bg-gray-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Volver</a>
+                        class="text-white bg-[#7993ae] hover:bg-gray-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Cancelar</a>
                 </div>
             </div>
 
-            <form wire:submit.prevent='addStudent' method="post" class="ml-auo space-y-4">
+            <form wire:submit.prevent='update' method="post" class="ml-auo space-y-4">
                 <label for="name"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
                 <input wire:model='name' type='text' name ="name" placeholder='Name'
@@ -55,7 +55,7 @@
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
                 <button type="submit"
-                    class="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Guardar</button>
+                    class="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Actualizar</button>
             </form>
         </div>
     </div>
