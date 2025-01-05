@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/students', ListStudents::class)->name('students.index');
     Route::get('/students/create', CreateStudent::class)->name('students.create');
-    Route::get('/students/{student}edit', EditStudent::class)->name('students.edit');
+    Route::get('/students/{student}/edit', EditStudent::class)->name('students.edit');
     Route::get('/tarea', TaskManager::class)->name('tasks');
 });
 

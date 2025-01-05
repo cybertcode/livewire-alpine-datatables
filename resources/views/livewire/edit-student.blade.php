@@ -6,7 +6,7 @@
                 <h1 class="text-3xl font-extrabold">ACTUALIZANDO</h1>
                 <p class="text-sm text-gray-400 mt-3">Registro de estudiantes </p>
                 <div class="mt-12">
-                    <a href="{{ route('students.index') }}" type='button' type="submit"
+                    <a wire:navigate href="{{ route('students.index') }}" type='button' type="submit"
                         class="text-white bg-[#7993ae] hover:bg-gray-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Cancelar</a>
                 </div>
             </div>
