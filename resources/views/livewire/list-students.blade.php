@@ -31,8 +31,9 @@
                         <td class="p-4 flex justify-center">
                             <a href="{{ route('students.edit', $student->id) }}" type="button"
                                 class="cursor-pointer whitespace-nowrap rounded-md bg-transparent p-0.5 font-semibold text-black outline-black hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-white dark:outline-white">Editar</a>
-                            <button type="button"
-                                class="cursor-pointer whitespace-nowrap rounded-md bg-transparent p-0.5 font-semibold text-black outline-black hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-white dark:outline-white">eliminar</button>
+                            <button wire:click="deleteStudent({{ $student->id }})" type="button"
+                                wire:confirm="¿Estás seguro de que deseas eliminar este registro?"
+                                class="cursor-pointer whitespace-nowrap rounded-md bg-transparent p-0.5 font-semibold text-black outline-black hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-white dark:outline-white">Eliminar</button>
                         </td>
                     </tr>
                 @empty
@@ -46,5 +47,4 @@
     <div class="my-7">
         {{ $students->links() }}
     </div>
-
 </div>
