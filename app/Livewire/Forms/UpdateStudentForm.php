@@ -11,30 +11,30 @@ class UpdateStudentForm extends Form
 {
     public ?Student $student;
 
-    // #[Validate('required')]
+    #[Validate('required')]
     public $name;
-    public $email;
 
-    // #[Validate('required')]
+    #[Validate('required')]
     public $section_id;
     public $sections = [];
     public function setStudent(Student $student)
     {
         $this->student = $student;
 
-        $this->fill($student->only(['name', 'email', 'section_id']));
+        $this->fill($student->only(['name', 'section_id']));
         $this->sections = Section::where('class_id', $student->class_id)->get();
     }
-    public function updateStudent($class_id)
+    public function updateStudent($class_id, $email)
     {
-        $this->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:students,email,' . $this->student->id,
-            'section_id' => 'required',
-        ]);
+        // $this->validate([
+        //     'name' => 'required',
+        //     'email' => 'required|email|unique:students,email,' . $this->student->id,
+        //     'section_id' => 'required',
+        // ]);
+        $this->validate();
         $this->student->update([
             'name' => $this->name,
-            'email' => $this->email,
+            'email' => $email,
             'class_id' => $class_id,
             'section_id' => $this->section_id,
         ]);

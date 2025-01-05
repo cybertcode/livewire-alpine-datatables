@@ -21,9 +21,9 @@
                 @enderror
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo
                     electrónico</label>
-                <input wire:model='form.email' type='email' name='email' placeholder='Email'
-                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff] @error('form.email') border-red-500 @enderror" />
-                @error('form.email')
+                <input wire:model='email' type='email' name='email' placeholder='Email'
+                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff] @error('email') border-red-500 @enderror" />
+                @error('email')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
                 <label for="class_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seleccionar

@@ -17,6 +17,7 @@ class CreateStudent extends Component
 
     public function addStudent()
     {
+        $this->validate();
         $this->form->storeStudent($this->class_id);
         return $this->redirect(route('students.index'), navigate: true);
     }
