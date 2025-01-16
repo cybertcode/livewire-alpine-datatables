@@ -6,6 +6,7 @@ use App\Livewire\ListStudents;
 use App\Livewire\CreateStudent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Amigos\ListaAmigos;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/students/create', CreateStudent::class)->name('students.create');
     Route::get('/students/{student}/edit', EditStudent::class)->name('students.edit');
     Route::get('/tarea', TaskManager::class)->name('tasks');
+    Route::get('/amigos', ListaAmigos::class)->name('friends');
+    Route::get('/amigos/{amigo}', ListaAmigos::class)->name('friends.show');
 });
 
 require __DIR__ . '/auth.php';
